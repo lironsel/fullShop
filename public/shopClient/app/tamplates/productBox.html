@@ -1,0 +1,25 @@
+
+
+<div class="thumbnail" ng-controller="mainController as mainCtrl">
+    <h4 class="text-center"><span class="label label-info">{{product.Manufactur}}</span></h4>
+    <img src="{{product.PicturePath}}">
+    <div class="caption">
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <h3>{{product.Musical_instrument}}</h3>
+            </div>
+            <div class="col-md-6 col-xs-6 price">
+                <h3>
+                    <label>{{product.Price | currency}}</label></h3>
+            </div>
+        </div>
+        <p>{{product.Description}}</p>
+        <div class="row">
+            <div class="col-md-6">
+                    <a class="btn btn-primary btn-product" ng-click="mainCtrl.productDetailsService.productDetails(product)"><span ></span>View Details</a>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success" ng-click="mainCtrl.cartService.insertToCart(product)" ><span></span> Add to Cart!</button></div>
+        </div>
+    </div>
+</div>

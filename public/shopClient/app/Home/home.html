@@ -1,0 +1,26 @@
+
+<div ng-controller="homeCtrl as homeC">
+    <h1 class="home">Welcome To Musical ShipShop</h1>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-8">
+                <h2 class="home">Our top hotest products: </h2>
+                <div  ng-repeat="product in homeC.top5Products track by $index" class="col-sm-6 col-md-5">
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+            </div>
+            <h2 ng-show="homeC.userService.isLoggedIn" class="home">Our last Month Product: </h2>
+            <div ng-if="homeC.userService.isLoggedIn" ng-init= "homeC.getLatestProduct()" class="col-xs-4" style="border:2px solid black;" >
+                <div  ng-repeat="product in homeC.lastestProduct track by $index" >
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+            </div>
+            <div ng-show="!homeC.userService.isLoggedIn" class="col-xs-4" style="border:2px solid black;" >
+                <h1>Please <a ng-click="homeC.loginService.loginModal()">login</a> to watch our newest product</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+

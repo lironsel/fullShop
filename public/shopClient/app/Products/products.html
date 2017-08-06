@@ -1,0 +1,62 @@
+
+<div ng-controller="productsController as prodCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="imaginary_container">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" placeholder="Search" ng-model="search.Description">
+                        <span class="input-group-addon">
+                        <button type="submit" ng-click="">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <p>Categories :</p>
+        <div ng-repeat="category in prodCtrl.allCatrgories"
+             class="col-sm-12 ">
+            <li  ><a data-toggle="tab" ng-click="prodCtrl.selctedCategory(category)">{{category}}</a></li>
+        </div>
+        <div>Sort By:
+            <li><a  ng-click="prodCtrl.sortChooseen(); filterByCategory = 'Price'" data-toggle="tab">Price</a></li>
+            <li><a  ng-click="prodCtrl.sortChooseen(); filterByCategory = 'Description'">Name</a></li>
+            <li><a  ng-click="prodCtrl.sortChooseen(); filterByCategory = 'Musical_instrument'">Id</a></li>
+            <li><a  ng-click="prodCtrl.sortChooseen(); filterByCategory = 'Manufactur'">Manufactur</a></li>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <div ng-show="!prodCtrl.isCategoryChoose && !prodCtrl.sortChoose" ng-repeat="product in prodCtrl.products | filter:search track by $index"
+                     class="col-sm-6 col-md-5">
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+
+                <div ng-show="prodCtrl.sortChoose" ng-repeat="product in prodCtrl.productsByCategory | orderBy:filterByCategory | filter:search track by $index"
+                     class="col-sm-6 col-md-5">
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+
+                <div ng-show="prodCtrl.isCategoryChoose && !prodCtrl.sortChoose" ng-repeat="product in prodCtrl.productsByCategory | filter:search track by $index"
+                     class="col-sm-6 col-md-5">
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+            </div>
+
+            <div ng-show="prodCtrl.userService.isLoggedIn" class="col-xs-3" style="border:2px solid black;">Recomended for you:
+                <div ng-repeat="product in prodCtrl.recomededProduct">
+                    <div ng-include="'tamplates/productBox.html'"></div>
+                </div>
+            </div>
+            <div ng-show="!prodCtrl.userService.isLoggedIn" class="col-xs-3" style="border:2px solid black;" >
+                <h1>Please login to watch recomended product for you</h1>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container" ng-controller="cartController as cartCtrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-md-offset">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Total</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+
+
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container" ng-controller="cartController as cartCtrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-md-offset">
+            <table class="table table-hover">
+                <tbody>
+                    <div ng-repeat="product in cartCtrl.cartService.getProductInCart()">
+                        <div ng-include="'tamplates/productInCart.html'">
+                        </div>
+                    </div>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td><h3>Total</h3></td>
+                    <td class="text-right"><h3><strong>{{cartCtrl.cartService.getTotalPrice() | currency}}</strong></h3></td>
+                </tr>
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="cartCtrl.goToProductPage()">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></td>
+                    <td>
+                        <button type="button" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

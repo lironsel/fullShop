@@ -1,0 +1,232 @@
+
+<div id="all">
+    <div ng-controller="registerController as registerCtrl">
+        <div id="content">
+            <div class="container">
+                <!--
+                <h3 style="color:red">{{registerCtrl.response}}</h3>
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>Login</h1>
+                        <p class="lead">Already our customer?</p>
+                        <p>Please sign in so you will be able to enjoy a whole world of high quality musical
+                            instruments!</p>
+                        <hr>
+                        <form method="post" ng-model="loginForm" name="loginForm">
+                            <div class="form-group">
+                                <label>Mail</label>
+                                <input type="text" class="form-control" name="mail" ng-model="registerCtrl.user.mail"
+                                       required>
+                                <span style="color:red" ng-show="loginForm.mail.$dirty && loginForm.mail.$invalid">
+                                <span ng-show="loginForm.mail.$error.required">Email is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="pass" ng-model="registerCtrl.user.pass"
+                                       required>
+                                <span style="color:red" ng-show="loginForm.pass.$touched">
+                                <span ng-show="loginForm.pass.$error.required">Password is required.</span>
+                                  </span>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"
+                                        ng-click="registerCtrl.logIn(loginForm.$valid)">Log in
+                                </button>
+
+                            </div>
+                            <!-- /#forget your password -->
+                <!--
+                        </form>
+                        <div class="col-md-6">
+                            <div class="box">
+                                <h1>Forgot your password?</h1>
+                                <p>Please answer the questions so we will help you restore your password!</p>
+                                <hr>
+                                <form method="post" ng-model="forgetForm" name="forgetForm">
+                                    <div class="form-group">
+                                        <label>Enter your mail</label>
+                                        <input type="text" class="form-control" name="mail"
+                                               ng-model="registerCtrl.forgetUser.mail" required>
+                                        <span style="color:red"
+                                              ng-show="forgetForm.mail.$dirty && loginForm.mail.$invalid">
+                                <span ng-show="forgetForm.mail.$error.required">Email is required.</span>
+                                  </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>What is the name of your first school?</label>
+                                        <input type="text" class="form-control" name="school"
+                                               ng-model="registerCtrl.forgetUser.school" required>
+                                        <span style="color:red" ng-show="forgetForm.school.$touched">
+                                <span ng-show="forgetForm.school.$error.required">School is required.</span>
+                                  </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>What is the name of your first pet?</label>
+                                        <input type="text" class="form-control" name="pet"
+                                               ng-model="registerCtrl.forgetUser.firstPet" required>
+                                        <span style="color:red" ng-show="forgetForm.pet.$touched">
+                                <span ng-show="forgetForm.pet.$error.required">Pet name is required.</span>
+                                  </span>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary" ng-disabled="forgetForm.$invalid"
+                                                ng-click="registerCtrl.restorePassword(forgetForm.$valid)">Restore my
+                                            password
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /#forget your password -->
+                <!-- /#start register -->
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>New account</h1>
+                        <p class="lead">Not our registered customer yet?</p>
+                        <p>With registration with us new world of musical instruments, fantastic discounts and much more
+                            opens to you! The whole process will not take you more than a minute!</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact
+                            us</a>, our customer service center is working for you 24/7.</p>
+                        <hr>
+                        <form ng-model="registrationForm" name="registrationForm" method="post">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email" name="mail" ng-model="registerCtrl.mail"
+                                       required>
+                                <span style="color:red"
+                                      ng-show="registrationForm.mail.$dirty && registrationForm.mail.$invalid">
+                                <span ng-show="registrationForm.mail.$error.required">Email is required.</span>
+                                    <span ng-show="registrationForm.mail.$error.email">Invalid email address.</span>
+                                  </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="password" ng-model="registerCtrl.password"
+                                       ng-pattern='/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,10}$/'  required>
+                                <span style="color:red" ng-show="registrationForm.password.$touched">
+                                <span ng-show="registrationForm.password.$error.required">Password is required.</span>
+                                    <span ng-show="registrationForm.password.$invalid">Password must contain at least one number and one letter and be 5-10 characters long.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>First name</label>
+                                <input type="text" class="form-control" name="fName" ng-model="registerCtrl.fName"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.fName.$touched">
+                                <span ng-show="registrationForm.fName.$error.required">First name is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" name="lName" ng-model="registerCtrl.lName"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.lName.$touched">
+                                <span ng-show="registrationForm.lName.$error.required">Last name is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone number - numbers only</label>
+                                <input type="number" class="form-control" name="phone" ng-model="registerCtrl.phone"
+                                       ng-minlength=9 required>
+                                <span style="color:red" ng-show="registrationForm.phone.$touched">
+                                <span ng-show="registrationForm.phone.$error.required">Phone number is required.</span>
+                                     <span ng-show="registrationForm.phone.$invalid">Phone number must contain at least 9 digits.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Cellular number - numbers only</label>
+                                <input type="number" class="form-control" name="cellular"
+                                       ng-model="registerCtrl.cellular" ng-minlength=10 required>
+                                <span style="color:red" ng-show="registrationForm.cellular.$touched">
+                                <span ng-show="registrationForm.cellular.$error.required">Cellular number is required.</span>
+                                     <span ng-show="registrationForm.cellular.$invalid">Cellular number must contain at least 10 digits.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Full address</label>
+                                <input type="text" class="form-control" name="addr" ng-model="registerCtrl.addr"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.addr.$touched">
+                                <span ng-show="registrationForm.addr.$error.required">Address is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" name="city" ng-model="registerCtrl.city"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.city.$touched">
+                                <span ng-show="registrationForm.city.$error.required">City is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select  type="text"  class="form-control" ng-model="registerCtrl.country" ng-options="x.Name for x in registerCtrl.countries" required>
+                                </select>
+                                <span style="color:red" ng-show="registrationForm.country.$touched">
+                                <span ng-show="registrationForm.country.$error.required">Please choose a country from the list.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Creditcard number - numbers only</label>
+                                <input type="number" class="form-control" name="creditCardNum"
+                                       ng-model="registerCtrl.creditCardNum" ng-minlength=16 ng-maxlength=16 required>
+                                <span style="color:red" ng-show="registrationForm.creditCardNum.$touched">
+                                <span ng-show="registrationForm.creditCardNum.$error.required">Credit card number is required.</span>
+                                     <span ng-show="registrationForm.creditCardNum.$invalid">Credit card number must contain exactly 16 digits.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Choose your interests, press Ctrl button for multiple choice</label>
+                                <select type="text" class="form-control" name="interest_types"
+                                        ng-model="registerCtrl.interest_types" required multiple>
+                                    <option value="Pianos">Pianos</option>
+                                    <option value="Guitars">Guitars</option>
+                                    <option value="Saxophones">Saxophones</option>
+                                    <option value="Trumpets">Trumpets</option>
+                                    <option value="Flutes">Flutes</option>
+                                    <option value="Drums">Drums</option>
+                                    <option value="Violins">Violins</option>
+                                </select>
+                                <span style="color:red" ng-show="registrationForm.interest_types.$touched">
+                                <span ng-show="registrationForm.interest_types.$error.required">At least one interest type is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>First school (for security reasons only)</label>
+                                <input type="text" class="form-control" name="school" ng-model="registerCtrl.school"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.school.$touched">
+                                <span ng-show="registrationForm.school.$error.required">School is required.</span>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>First pet name (for security reasons only)</label>
+                                <input type="text" class="form-control" name="firstPet" ng-model="registerCtrl.firstPet"
+                                       required>
+                                <span style="color:red" ng-show="registrationForm.firstPet.$touched">
+                                <span ng-show="registrationForm.firstPet.$error.required">First pet name is required.</span>
+                                  </span>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" ng-disabled="registrationForm.$invalid"
+                                        ng-click="registerCtrl.register()"> Register
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /#end register -->
+
+            </div>
+
+            <!-- /.container -->
+        </div>
+    </div>
+    <!-- /#content -->
+</div>`
+<!-- /#all -->
+

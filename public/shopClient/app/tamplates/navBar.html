@@ -1,0 +1,47 @@
+<!-- START PAGE SOURCE -->
+<div class="tail-top" ng-controller="mainController as mainCtl">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9">
+            <span class="top-info">24/7 Sales &amp; Support + 1 800 000 0000
+             </span>
+
+                </div>
+                <div class="col-xs-3">
+                    <a ng-show="!mainCtl.userService.isLoggedIn" type="button" class="btn btn-default btn-sm" ng-click="mainCtl.logIn()" >
+                        <span ></span> login
+                    </a>
+                    <a ng-show="!mainCtl.userService.isLoggedIn" type="button" class="btn btn-default btn-sm" href="#!/registration" >
+                        <span ></span> Sign-up
+                    </a>
+                    <a  ng-show="mainCtl.userService.isLoggedIn" href="#!/cart" type="button" class="btn btn-default btn-sm" >
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+                    </a>
+                    <a ng-show="mainCtl.userService.isLoggedIn" href="#!/home" class="btn btn-default btn-sm"  id="logout" ng-click="mainCtl.logOut()">Log out</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header >Hello {{mainCtl.userService.userEmail}}! {{ mainCtl.userService.lastLogin }}</header>
+    <!-- *** TOP BAR END *** -->
+
+    <!-- *** NAVBAR ***
+ _________________________________________________________ -->
+
+    <nav class="navbar navbar-inverse bg-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" >Music Shop</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#!/home">Home</a></li>
+                <li><a href="#!/products">Products</a></li>
+                <li><a ng-click="mainCtl.openAboutModal()">About</a></li>
+                <li><a ng-click="mainCtl.openContactModal()">Contact</a></li>
+
+            </ul>
+        </div>
+    </nav>
+</div>

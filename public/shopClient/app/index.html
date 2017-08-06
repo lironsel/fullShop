@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/productStyle.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Products/productStyleSheet.css" >
+    <link rel="stylesheet" href="app.css">
+
+    <!-- theme stylesheet -->
+
+    <!-- your stylesheet with modifications -->
+
+</head>
+<body>
+<div ng-include="'tamplates/navBar.html'"></div>
+
+<!-- START PAGE SOURCE -->
+
+<div ng-view></div>
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="Home/homeController.js"></script>
+<script src="Products/productsController.js"></script>
+<script src="Registration/registrationCtrl.js"></script>
+<script src="Login/loginController.js"></script>
+<script src="Cart/cartController.js"></script>
+
+
+<script src="shared/ui-bootstrap-tpls-2.5.0.min%20.js"></script>
+
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+
+<script src="bower_components/html5-boilerplate/dist/js/vendor/jquery-1.12.0.min.js"></script>
+<script src="components/bootstrap.min.js"></script>
+<script src="components/wow.min.js"></script>
+<script src="components/front.js"></script>
+<script src="components/owl.carousel.min.js"></script>
+<script src="components/bootstrap-hover-dropdown.js"></script>
+<script src="shared/angular-local-storage.js"></script>
+<script src="shared/angular-local-storage.min.js"></script>
+<script src="shared/angular-local-storage.min.js.map"></script>
+<script src="javaScripts/productSideNavBar.js"></script>
+<script src="files/xml2json.js"></script>
+
+
+</body>
+</html>

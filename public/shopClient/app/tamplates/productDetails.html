@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+
+                <img src="{{product.PicturePath}}" class="img-rounded" alt="Cinque Terre" width="310"
+                     height="450">
+
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <div class="product-title"><h2>{{product.Musical_instrument}}</h2></div>
+            <div class="product-desc"><b>Manufactur : </b>{{product.Manufactur}}</div>
+            <div class="product-desc"><b>Production year : </b>{{product.Year}}</div>
+            <div class="product-desc"><b>Publish Date : </b> {{product.PublishDate}}</div>
+            <div class="product-desc"><b>Stock Amount :</b> {{product.StockAmount}}</div>
+            <div class="product-desc"><b>Delivery time : </b>{{product.Delivery_time}}</div>
+            <div class="product-desc"><b>Description : </b>{{product.Description}}</div>
+            <div class="product-desc"><b>How many buy this item :</b> {{product.Sales_number}}</div>
+            <hr>
+            <div class="product-price"><h2>Price: {{product.Price | currency}}</h2></div>
+            <div style="margin: 20px 20px;">
+                <button type="button" class="btn btn-danger" ng-click="addToCart()">Add to Cart</button>
+                <button style="margin: 50px ;" type="button" class="btn btn-info" ng-click="confirm()">Exit</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
