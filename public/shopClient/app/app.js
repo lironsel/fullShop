@@ -123,9 +123,13 @@ myApp.factory('cartService',['localStorageService', function (localStorageServic
         return service.totalPrice;
     };
     service.setFullCart= function(){
+        service.productInCart =[];
         service.userName= localStorageService.cookie.get("mail");
-        if (localStorageService.get("cart "+  service.userName)!==null)
-            service.productInCart = localStorageService.get("cart "+  service.userName);
+        console.log("******cart"+service.userName);
+        if (localStorageService.get("cart "+  service.userName)!==null){
+            console.log("******cart"+localStorageService.get("cart " + service.userName));
+            service.productInCart = localStorageService.get("cart " + service.userName);
+        }
         service.totalPrice = localStorageService.get("totalPrice "+  service.userName);
     }
     return service;

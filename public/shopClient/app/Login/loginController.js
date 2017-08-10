@@ -33,11 +33,13 @@ angular.module('myLoginApp', ['ngRoute'])
                     )
             }
         }
+
         $scope.forgetUser = {
             mail: '',
             school: '',
             firstPet: ''
         };
+
         $scope.restorePassword = function (valid) {
             if (valid) {
                 $http.post('http://localhost:3100/users/verifyUserAndRestorePass', $scope.forgetUser)
